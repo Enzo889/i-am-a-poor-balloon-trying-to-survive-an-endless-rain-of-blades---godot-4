@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqcyjim5fhbf3"]
+[gd_scene load_steps=8 format=3 uid="uid://bqcyjim5fhbf3"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_2yd1c"]
 [ext_resource type="Texture2D" uid="uid://b40ykwmg7qc6g" path="res://assets/background.png" id="1_faxff"]
 [ext_resource type="PackedScene" uid="uid://b3ryy5ax5fagy" path="res://balloon.tscn" id="2_5r4e6"]
-[ext_resource type="PackedScene" uid="uid://d13bboum7b7cx" path="res://saw_blade.tscn" id="3_ulluv"]
+[ext_resource type="PackedScene" uid="uid://binumxsj01s2e" path="res://saw_blade_telegraph.tscn" id="3_u4bcr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8f3e"]
 size = Vector2(47, 208)
@@ -10,7 +11,12 @@ size = Vector2(47, 208)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oji36"]
 size = Vector2(320, 28)
 
+[sub_resource type="LabelSettings" id="LabelSettings_klodm"]
+line_spacing = 0.0
+font_size = 8
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_2yd1c")
 
 [node name="BackgroundSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_faxff")
@@ -41,11 +47,26 @@ shape = SubResource("RectangleShape2D_g8f3e")
 [node name="Balloon" parent="." instance=ExtResource("2_5r4e6")]
 position = Vector2(160, 96)
 
-[node name="SawBlade" parent="." instance=ExtResource("3_ulluv")]
-position = Vector2(88, 72)
+[node name="SawBladeTelegraph" parent="." instance=ExtResource("3_u4bcr")]
+position = Vector2(88, 120)
 
-[node name="SawBlade2" parent="." instance=ExtResource("3_ulluv")]
-position = Vector2(120, 128)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
-[node name="SawBlade3" parent="." instance=ExtResource("3_ulluv")]
-position = Vector2(208, 48)
+[node name="SpawnZone" type="ColorRect" parent="."]
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 168.0
+color = Color(0.956863, 0, 0, 0.152941)
+
+[node name="SawCountLabel" type="Label" parent="."]
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 32.0
+text = "Blades
+0"
+label_settings = SubResource("LabelSettings_klodm")
+horizontal_alignment = 1
+vertical_alignment = 1
