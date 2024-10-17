@@ -16,4 +16,4 @@ func _physics_process(delta):
 
 func _on_hurtbox_body_entered(body):
 	Events.balloon_popped.emit()
-	queue_free()
+	get_tree().change_scene_to_file("res://menu.tscn")

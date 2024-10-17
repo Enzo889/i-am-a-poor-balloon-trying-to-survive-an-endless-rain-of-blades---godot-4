@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw2kpp3csbxke"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_v2nrg"]
+[ext_resource type="Texture2D" uid="uid://b40ykwmg7qc6g" path="res://assets/background.png" id="2_jxyq2"]
+[ext_resource type="Theme" uid="uid://42erwl7a7u2y" path="res://theme.tres" id="3_onkne"]
+[ext_resource type="FontFile" uid="uid://dmj57bktwe348" path="res://assets/Pixelme.ttf" id="3_y8qye"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2nrg")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 88)
+texture = ExtResource("2_jxyq2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 112.0
+offset_right = 216.0
+offset_bottom = 178.0
+scale = Vector2(0.358749, 0.358749)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_onkne")
+theme_override_fonts/font = ExtResource("3_y8qye")
+text = "Play"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_onkne")
+theme_override_fonts/font = ExtResource("3_y8qye")
+text = "Exit"
+
+[node name="HighscoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 209.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("3_y8qye")
+text = "HIGHSCORE 0"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

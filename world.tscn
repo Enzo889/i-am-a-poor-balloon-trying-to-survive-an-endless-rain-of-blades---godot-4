@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqcyjim5fhbf3"]
+[gd_scene load_steps=10 format=3 uid="uid://bqcyjim5fhbf3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2yd1c"]
 [ext_resource type="Texture2D" uid="uid://b40ykwmg7qc6g" path="res://assets/background.png" id="1_faxff"]
 [ext_resource type="PackedScene" uid="uid://b3ryy5ax5fagy" path="res://balloon.tscn" id="2_5r4e6"]
 [ext_resource type="PackedScene" uid="uid://binumxsj01s2e" path="res://saw_blade_telegraph.tscn" id="3_u4bcr"]
+[ext_resource type="FontFile" uid="uid://dmj57bktwe348" path="res://assets/Pixelme.ttf" id="5_4qswj"]
+[ext_resource type="Theme" uid="uid://42erwl7a7u2y" path="res://theme.tres" id="5_6m1hh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8f3e"]
 size = Vector2(47, 208)
@@ -12,7 +14,8 @@ size = Vector2(47, 208)
 size = Vector2(320, 28)
 
 [sub_resource type="LabelSettings" id="LabelSettings_klodm"]
-line_spacing = 0.0
+line_spacing = 4.0
+font = ExtResource("5_4qswj")
 font_size = 8
 
 [node name="World" type="Node2D"]
@@ -62,9 +65,11 @@ offset_bottom = 168.0
 color = Color(0.956863, 0, 0, 0.152941)
 
 [node name="SawCountLabel" type="Label" parent="."]
-offset_top = 8.0
-offset_right = 48.0
-offset_bottom = 32.0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("5_6m1hh")
 text = "Blades
 0"
 label_settings = SubResource("LabelSettings_klodm")
